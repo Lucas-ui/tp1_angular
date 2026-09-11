@@ -1,4 +1,4 @@
-import { Component, signal, Input } from '@angular/core';
+import { Component, signal, input, Input } from '@angular/core';
 
 @Component({
   selector: 'app-etudiant',
@@ -6,9 +6,9 @@ import { Component, signal, Input } from '@angular/core';
   templateUrl: './etudiant.html',
 })
 export class Etudiant {
-  @Input() nomEtu: string = 'Rolland';
-  @Input() prenomEtu: string = 'Lucas';
-  @Input() statutEtu: string = 'Absent';
+  nomEtu = input<string>();
+  prenomEtu = input<string>();
+  @Input() statutEtu: boolean = false;
 
   retNomEtu() {
     return this.nomEtu;

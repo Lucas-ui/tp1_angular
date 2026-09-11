@@ -9,14 +9,14 @@ import { Etudiant } from './etudiant/etudiant';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly nomMatiere = signal("Module Champs d'application");
+  nomMatiere = "Module Champs d'application";
   numeroSeance: string = '1';
-  estAuth: boolean = true;
+  estAuth = signal(false);
 
   constructor() {
     setTimeout(() => {
-      this.estAuth = true;
-    }, 5000);
+      this.estAuth.set(true);
+    }, 3000);
   }
 
   rendTousPres() {

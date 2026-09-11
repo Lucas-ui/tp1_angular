@@ -3,43 +3,15 @@
   <ul>
     Prénom :
     {{
-      retPrenomEtu()
+      prenomEtu()
     }}
     Nom :
     {{
-      retNomEtu()
+      nomEtu()
     }}
     Statut :
     {{
-      statutEtu
-    }}
-  </ul>
-  <ul>
-    Prénom :
-    {{
-      retPrenomEtu()
-    }}
-    Nom :
-    {{
-      retNomEtu()
-    }}
-    Statut :
-    {{
-      statutEtu
-    }}
-  </ul>
-  <ul>
-    Prénom :
-    {{
-      retPrenomEtu()
-    }}
-    Nom :
-    {{
-      retNomEtu()
-    }}
-    Statut :
-    {{
-      statutEtu
+      statutEtu ? 'Présent' : 'Absent'
     }}
   </ul>
 </li>

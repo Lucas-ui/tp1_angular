@@ -1,10 +1,14 @@
 <main class="main">
   <div class="content">
-    <h1>{{ nomMatiere() }}</h1>
+    <h1>{{ nomMatiere }}</h1>
     <h2>Séance TP {{ numeroSeance }}</h2>
     <p class="description">Prise en main d'Angular, première application</p>
-    <app-etudiant nomEtu="GLC" prenomEtu="Mathieu" statutEtu="absent"></app-etudiant>
-    <button [disabled]="!estAuth" (click)="rendTousPres()">Tous présents</button>
+    <app-etudiant nomEtu="Glc" prenomEtu="Mathieu" [statutEtu]="false"></app-etudiant>
+    <app-etudiant nomEtu="Lor" prenomEtu="Jean-Guy" [statutEtu]="true"></app-etudiant>
+    <app-etudiant nomEtu="Rolland" prenomEtu="Lucas" [statutEtu]="false"></app-etudiant>
+    <button class="btn btn-success" [disabled]="!estAuth()" (click)="rendTousPres()">
+      Tous présents
+    </button>
   </div>
 </main>
 
@@ -14,7 +18,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 60vh;
+    height: 70vh;
   }
 
   h2 {
