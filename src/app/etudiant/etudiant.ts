@@ -1,14 +1,18 @@
-import { Component, signal, input, Input } from '@angular/core';
+import { Component, input, model } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-etudiant',
   styleUrl: './etudiant.css',
   templateUrl: './etudiant.html',
+  imports: [CommonModule, NgClass, NgStyle],
 })
 export class Etudiant {
   nomEtu = input<string>();
   prenomEtu = input<string>();
-  @Input() statutEtu: boolean = false;
+  statutEtu = model<boolean>(false);
+  commentaireEtu = input<string>();
 
   retNomEtu() {
     return this.nomEtu;
@@ -16,5 +20,20 @@ export class Etudiant {
 
   retPrenomEtu() {
     return this.prenomEtu;
+  }
+
+  getColorEtu() {
+    if (!this.statutEtu()) {
+      return 'red';
+    }
+    return 'green';
+  }
+
+  rendrePresent() {
+    this.statutEtu.set(true);
+  }
+
+  rendreAbsent() {
+    this.statutEtu.set(false);
   }
 }

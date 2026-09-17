@@ -3,33 +3,24 @@
     <h1>{{ nomMatiere }}</h1>
     <h2>Séance TP {{ numeroSeance }}</h2>
     <p class="description">Prise en main d'Angular, première application</p>
-    <app-etudiant nomEtu="Glc" prenomEtu="Mathieu" [statutEtu]="false"></app-etudiant>
-    <app-etudiant nomEtu="Lor" prenomEtu="Jean-Guy" [statutEtu]="true"></app-etudiant>
-    <app-etudiant nomEtu="Rolland" prenomEtu="Lucas" [statutEtu]="false"></app-etudiant>
-    <button class="btn btn-success" [disabled]="!estAuth()" (click)="rendTousPres()">
-      Tous présents
-    </button>
+    <h4>Liste des étudiants</h4>
+    <app-etudiant
+      *ngFor="let etu of tabEtudiants"
+      [nomEtu]="etu.nom"
+      [prenomEtu]="etu.prenom"
+      [statutEtu]="etu.present"
+      [commentaireEtu]="commentaireSeance"
+    ></app-etudiant>
+    <div class="button-container">
+      <button class="btn btn-success" [disabled]="!estAuth()" (click)="rendTousPres()">
+        Tous présents
+      </button>
+    </div>
+    <p>Entrez un commentaire :</p>
+    <input type="text" class="form-control" [(ngModel)]="commentaireSeance" />
+    <p>Voilà votre commentaire :</p>
+    <p>{{ commentaireSeance }}</p>
   </div>
 </main>
-
-<style>
-  .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 70vh;
-  }
-
-  h2 {
-    text-align: center;
-    color: green;
-  }
-
-  .description {
-    text-align: center;
-    background-color: blue;
-  }
-</style>
 
 <router-outlet />

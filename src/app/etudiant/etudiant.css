@@ -1,0 +1,46 @@
+.infos-etudiant {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.infos-etudiant li {
+  display: inline;
+}
+
+.infos-etudiant p {
+  display: inline;
+  margin: 0;
+}
+
+.infos-etudiant li:not(:last-child)::after {
+  content: '---';
+  margin-left: 1rem;
+}
+
+.infos-etudiant li:last-child {
+  flex-basis: 100%;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.carre-rouge {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  margin-left: 8px;
+  border-radius: 100%;
+  border: 1px solid black;
+  vertical-align: middle;
+}
+
+.button-container {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+}

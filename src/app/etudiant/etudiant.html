@@ -1,17 +1,43 @@
-<li class="card card-small">
-  <h4>Liste des étudiants</h4>
-  <ul>
-    Prénom :
-    {{
-      prenomEtu()
-    }}
-    Nom :
-    {{
-      nomEtu()
-    }}
-    Statut :
-    {{
-      statutEtu ? 'Présent' : 'Absent'
-    }}
-  </ul>
-</li>
+<div class="card-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ul>
+        <li
+          class="card card-small list-group-item"
+          [ngClass]="{
+            'list-group-item-success': statutEtu(),
+            'list-group-item-danger': !statutEtu(),
+          }"
+        >
+          <ul class="infos-etudiant">
+            <li>
+              Prénom :
+              <p [ngStyle]="{ color: getColorEtu() }">{{ prenomEtu() }}</p>
+            </li>
+            <li>
+              Nom :
+              <p [ngStyle]="{ color: getColorEtu() }">{{ nomEtu() }}</p>
+            </li>
+            <li>
+              Statut :
+              <p [ngStyle]="{ color: getColorEtu() }">{{ statutEtu() ? 'Présent' : 'Absent' }}</p>
+              <span class="carre-rouge" *ngIf="statutEtu() === false"></span>
+            </li>
+            <li>
+              Commentaire :
+              <p [ngStyle]="{ color: getColorEtu() }">{{ commentaireEtu() }}</p>
+            </li>
+          </ul>
+          <div class="button-container">
+            <button class="btn btn-success" [disabled]="statutEtu()" (click)="rendrePresent()">
+              Présent
+            </button>
+            <button class="btn btn-danger" [disabled]="!statutEtu()" (click)="rendreAbsent()">
+              Absent
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
